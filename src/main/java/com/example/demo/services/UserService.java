@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.dao.UserDao;
 import com.example.demo.entity.UserEntity;
 
 /**
@@ -13,5 +14,5 @@ public interface UserService {
 
   boolean deleteUser(int id);
 
-  boolean createUser(UserEntity user);
+  boolean createUser(UserDao user);
 }

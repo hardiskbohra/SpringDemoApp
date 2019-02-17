@@ -1,5 +1,6 @@
 package com.example.demo.services.impl;
 
+import com.example.demo.dao.UserDao;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.services.UserService;
@@ -33,7 +34,13 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public boolean createUser(UserEntity user) {
-    return false;
+  public boolean createUser(UserDao user) {
+    UserEntity userEntity = new UserEntity();
+    userEntity.setFirstName(user.getFirstName());
+    userEntity.setLastName(user.getLastName());
+    userEntity.setAddress(user.getAddress());
+    userEntity.setContact(user.getContact());
+    UserEntity response = userRepository.save(userEntity);
+    return true;
   }
 }
